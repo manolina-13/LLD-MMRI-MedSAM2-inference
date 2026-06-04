@@ -33,7 +33,7 @@ Below is the visualization for **Slice 36** (the key slice), comparing the raw i
 ![Comparison Image](./MR-391135_1_C+A_0000_comparison.png)
 
 ### 5-Slice Bidirectional Propagation Visualization
-Below is a demonstration of the model successfully propagating the prompt across multiple adjacent slices (from Key Slice - 2 down to Key Slice + 2). This stacked grid provides a comprehensive view of how well the 3D segmentation generalizes beyond the initial prompted slice. The Red Box is denoting the prompt (Bouding box).
+Below is a demonstration of the model successfully propagating the prompt across multiple adjacent slices (from Key Slice - 2 down to Key Slice + 2). This stacked grid provides a comprehensive view of how well the 3D segmentation generalizes beyond the initial prompted slice. The Red Box is denoting the prompt (Bounding box).
 
 ![5-Slice Comparison](./MR62668_2_InPhase_0000_5_slice_comparison.png)
 
@@ -42,6 +42,7 @@ With backward propagation enabled, the segmentation successfully spans the entir
 
 ## LICENSE
 
+This project is distributed under the MIT License. See `LICENSE` for more information.
 
 ## Contact
 Email : manolinadas2004@gmail.com
