@@ -33,12 +33,15 @@ Below is the visualization for **Slice 36** (the key slice), comparing the raw i
 ![Comparison Image](./MR-391135_1_C+A_0000_comparison.png)
 
 ### 5-Slice Bidirectional Propagation Visualization
-Below is a demonstration of the model successfully propagating the prompt across multiple adjacent slices (from Key Slice - 2 down to Key Slice + 2). This stacked grid provides a comprehensive view of how well the 3D segmentation generalizes beyond the initial prompted slice.
+Below is a demonstration of the model successfully propagating the prompt across multiple adjacent slices (from Key Slice - 2 down to Key Slice + 2). This stacked grid provides a comprehensive view of how well the 3D segmentation generalizes beyond the initial prompted slice. The Red Box is denoting the prompt (Bouding box).
 
 ![5-Slice Comparison](./MR62668_2_InPhase_0000_5_slice_comparison.png)
 
 ## Results
 With backward propagation enabled, the segmentation successfully spans the entire lesion in 3D (slices 0 to N), improving the overall Dice score significantly compared to unidirectional propagation.
+
+## LICENSE
+
 
 ## Contact
 Email : manolinadas2004@gmail.com
