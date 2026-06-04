@@ -33,3 +33,6 @@ Below is the visualization for **Slice 36** (the key slice), comparing the raw i
 
 ## Results
 With backward propagation enabled, the segmentation successfully spans the entire lesion in 3D (slices 0 to N), improving the overall Dice score significantly compared to unidirectional propagation.
+
+## Contact
+Email : manolinadas2004@gmail.com
