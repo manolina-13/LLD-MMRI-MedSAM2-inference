@@ -38,7 +38,7 @@ Below is a demonstration of the model successfully propagating the prompt across
 ![5-Slice Comparison](./MR62668_2_InPhase_0000_5_slice_comparison.png)
 
 ## Results
-With backward propagation enabled, the segmentation successfully spans the entire lesion in 3D (slices 0 to N), improving the overall Dice score significantly compared to unidirectional propagation.
+With backward propagation enabled, the segmentation successfully spans the entire lesion in 3D (slices 0 to 71), improving the overall Dice score significantly compared to unidirectional propagation.
 
 ## LICENSE
 
