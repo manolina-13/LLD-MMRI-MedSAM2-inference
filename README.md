@@ -1,11 +1,13 @@
-# MedSAM2 3D Segmentation - Bidirectional Propagation
+# MedSAM2 3D Segmentation - Bidirectional Propagation (LLD-MMRI Dataset)
 
-This repository demonstrates the MedSAM2 3D segmentation pipeline modified to properly execute both **forward and backward** propagation in volumetric medical images (like MRI/CT scans). 
+This repository demonstrates the use of the MedSAM2 3D segmentation pipeline on the **LLD-MMRI (Liver Lesion Detection Multi-phase MRI)** dataset. It highlights a critical fix we implemented to ensure the model segments lesions in all 3D dimensions properly.
 
-## Overview
-By default, placing a prompt (bounding box) on a key slice in a 3D medical scan using MedSAM2 often propagates only forward. This results in missing segmentations for any slices preceding the key slice.
+## Overview & Dataset
+The primary notebook (`LLD_MMRI_MedSAM2.ipynb`) performs lesion segmentation on the LLD-MMRI dataset. It reads multi-phase MRI images, extracts bounding box prompts from the dataset's JSON annotations (using the slice with the largest lesion area as the "key slice"), and passes that bounding box to MedSAM2 to track and segment the lesion across the entire 3D volume.
 
-We modified the core inference loop within the `LLD_MMRI_MedSAM2.ipynb` notebook to run the `propagate_in_video` function bidirectionally:
+By default, placing a prompt (bounding box) on a key slice in a 3D medical scan using MedSAM2's `propagate_in_video` function only propagates **forward** to the end of the scan. This results in missing segmentations for any slices *preceding* the key slice.
+
+We modified the core inference loop within the notebook to run the `propagate_in_video` function **bidirectionally**:
 
 ```python
 # 1. Forward Propagation
@@ -23,5 +25,11 @@ for f_idx, _, l in predictor.propagate_in_video(state, reverse=True):
 - `MR-391135_1_C+A_0000_k36_mask.nii`: The resulting generated 3D mask (label image).
 - `MR-391135_1_C+A_0000_comparison.png`: A visualization comparing the raw image, ground truth, and the MedSAM2 generated mask, including the Dice score.
 
+## Visualization
+
+Below is the visualization comparing the raw input MRI key slice, the ground truth segmentation with the provided bounding box prompt, and the generated mask from MedSAM2:
+
+![Comparison Image](./MR-391135_1_C+A_0000_comparison.png)
+
 ## Results
-With backward propagation enabled, the segmentation successfully spans the entire lesion in 3D, improving the overall Dice score significantly compared to unidirectional propagation.
+With backward propagation enabled, the segmentation successfully spans the entire lesion in 3D (slices 0 to N), improving the overall Dice score significantly compared to unidirectional propagation.
