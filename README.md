@@ -21,13 +21,13 @@ for f_idx, _, l in predictor.propagate_in_video(state, reverse=True):
 
 ## Included Files
 - `LLD_MMRI_MedSAM2.ipynb`: The primary notebook, updated with the bidirectional propagation fix.
-- `MR-391135_1_C+A_0000.nii`: The original input MRI scan.
-- `MR-391135_1_C+A_0000_k36_mask.nii`: The resulting generated 3D mask (label image).
+- `MR-391135_1_C+A_0000.nii`: The original input MRI scan (Dimensions: 72 slices × 512 × 512).
+- `MR-391135_1_C+A_0000_k36_mask.nii`: The resulting generated 3D mask/label image (Dimensions: 72 slices × 512 × 512).
 - `MR-391135_1_C+A_0000_comparison.png`: A visualization comparing the raw image, ground truth, and the MedSAM2 generated mask, including the Dice score.
 
 ## Visualization
 
-Below is the visualization comparing the raw input MRI key slice, the ground truth segmentation with the provided bounding box prompt, and the generated mask from MedSAM2:
+Below is the visualization for **Slice 36** (the key slice), comparing the raw input MRI, the ground truth segmentation with the provided bounding box prompt, and the generated mask from MedSAM2:
 
 ![Comparison Image](./MR-391135_1_C+A_0000_comparison.png)
 
